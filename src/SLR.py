@@ -6,8 +6,8 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
 
 # Load CSV data
-train_df = pd.read_csv("sign_mnist/sign_mnist_train.csv")
-test_df = pd.read_csv("sign_mnist/sign_mnist_test.csv")
+train_df = pd.read_csv("../data/sign_mnist/sign_mnist_train.csv")
+test_df = pd.read_csv("../data/sign_mnist/sign_mnist_test.csv")
 
 # The csv contains 785 columns, the first column is the label and the rest are pixel values.
 # Each row is one image.
