@@ -6,8 +6,8 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
 
 # Load CSV data
-train_df = pd.read_csv("../data/sign_mnist/sign_mnist_train.csv")
-test_df = pd.read_csv("../data/sign_mnist/sign_mnist_test.csv")
+train_df = pd.read_csv("data/sign_mnist/sign_mnist_train.csv")
+test_df = pd.read_csv("data/sign_mnist/sign_mnist_test.csv")
 
 # The csv contains 785 columns, the first column is the label and the rest are pixel values.
 # Each row is one image.
@@ -109,7 +109,7 @@ plt.legend()
 
 plt.show()
 
-# Predict twenty images from X_test
+# Predict twelve images from X_test
 
 # Sign Language MNIST mapping (0=A, 1=B, ..., 25=Z)
 letters = [
@@ -119,8 +119,8 @@ letters = [
 def label_to_letter(label):
     return letters[label]
 
-# first 20 images
-num_images = 20
+# first 12 images
+num_images = 12
 X_subset = X_test[:num_images] 
 y_subset = y_test[:num_images]  
 
@@ -136,7 +136,7 @@ print("True letters:     ", true_letters)
 plt.figure(figsize=(12,4))
 
 for i in range(num_images):
-    plt.subplot(4, 5, i+1)
+    plt.subplot(4, 3, i+1)
     plt.imshow(X_subset[i].reshape(28,28), cmap='gray')
     plt.title(f"Pred: {predicted_letters[i]}\nTrue: {true_letters[i]}")
     plt.axis('off')
